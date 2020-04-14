@@ -53,16 +53,16 @@ for key in variables.keys():
     variable.write(str(variables[key])+'\n')
     filew.write('def '+str(key)+'():\n\tfile = open("variable", 'r').readlines()'+'\n\ttry:\n\t\t'+'return int(file['+str(index)+'])\n\texcept:\n\t\treturn '+str(variables[key])+'\n\n')
     index = index + 1
-    print(key)
+    # print(key)
 
-print("---------------------------------------------")
+# print("---------------------------------------------")
 
 for i in file:
     temp = 0
     if i.find('=')!=-1:
-        print(i)
+        # print(i)
         left = i.split('=')[0]
-        print(left)
+        # print(left)
         for key in variables.keys():
             if left.find(key) != -1:
                 # print(i.strip())

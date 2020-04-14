@@ -1,0 +1,15 @@
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+
+ ****** Running generation 0 ****** 
+
+Population's average fitness: 1.28000 stdev: 0.09798
+Best fitness: 1.50000 - size: (1, 3) - species 1 - id 8
+Average adjusted fitness: 0.080
+Mean genetic distance 0.724, standard deviation 0.374
+Population of 10 members in 1 species:
+   ID   age  size  fitness  adj fit  stag
+  ====  ===  ====  =======  =======  ====
+     1    0    10      1.5    0.080     0
+Total extinctions: 0
+Generation time: 1.585 sec
