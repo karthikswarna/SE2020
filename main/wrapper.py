@@ -6,6 +6,7 @@ import threading
 import time
 import os
 from multiprocessing import Process
+import time
 
 vari = open('variable').readlines()
 
@@ -78,7 +79,7 @@ file_2 = open('output_param', 'w')
 for prcs, p in zip(batch, ps):
     file_2.write('Parameter %s took %s seconds\n' % (prcs, ps[p]))
 
-file_2.close()
+
 
 for proc in procs:
     proc.kill()
@@ -95,18 +96,20 @@ for proc in procs:
 
 
 
+# file_ = open("output", "a")
 
-
+# giga = 0
 # for num in varss:
-
-#     os.chdir('./test_'+str(num))
-#     with open(os.devnull, 'w') as fp:
-#         proc = subprocess.Popen([sys.executable, 'simulate_changes.py', str([num, (num+1)%3])])
-#     # proc = subprocess.Popen([sys.executable, 'simulate_changes.py', str(num)])
-#     os.chdir('../')
-#     batch.append([num,((num+1)%3)])
-#     ps[proc] = time.time()
-#     ts.append(threading.Thread(target=time_p, args=(proc,)))
+#     giga = giga + 1
+#     if(giga < 5):
+#         os.chdir('./test_'+str(num))
+#         with open(os.devnull, 'w') as fp:
+#             proc = subprocess.Popen([sys.executable, 'simulate_changes.py', str([num, (num+1)%3])], stdout=file_)
+#         # proc = subprocess.Popen([sys.executable, 'simulate_changes.py', str(num)])
+#         os.chdir('../')
+#         batch.append(str(num) + "," + str((num+1)%3))
+#         ps[proc] = time.time()
+#         ts.append(threading.Thread(target=time_p, args=(proc,)))
     
 #     # procs.append(proc)
 
@@ -119,20 +122,66 @@ for proc in procs:
 # for t in ts:
 #     t.join()
     
+# file_2 = open('output_param', 'a')
 
 # for prcs, p in zip(batch, ps):
-#     print('%s took %s seconds' % (prcs, ps[p]))
+#     file_2.write('Parameter %s took %s seconds\n' % (prcs, ps[p]))
 
 
 
-def sort_list(list1, list2): 
+
+
+
+file_.close()
+
+# def sort_list(list1, list2): 
   
-    zipped_pairs = zip(list2, list1) 
+#     zipped_pairs = zip(list2, list1) 
   
-    z = [x for _, x in sorted(zipped_pairs)] 
+#     z = [x for _, x in sorted(zipped_pairs)] 
       
-    return z 
+#     return z 
     
+
+
+
+
+
+
+
+
+# Printing the fitness scores in output_param file.
+file_2.write('  ====  ===  ====  =======  =======  ====\n')
+
+while(True):
+    file_3 = open('output', 'r')
+    lines = file_3.readlines()
+    a = 0
+    for k in lines:
+        if k.find("generation 4")!=-1:
+            a = a + 1
+    if a >= 8:
+        break
+    else:
+        file_3.close()
+    
+
+print(" -----------------------------------------------------------------------------")
+flag = False
+for line in lines:
+    if(flag == True):
+        file_2.write(line)
+        flag = False
+
+    if line == "  ====  ===  ====  =======  =======  ====\n":
+        flag = True
+
+file_2.close()
+file_3.close()
+
+
+
+
 
 
 for proc in procs:

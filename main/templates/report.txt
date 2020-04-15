@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Report</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            h1 {text-align: center;}
+            
+            /* Remove the navbar's default margin-bottom and rounded borders */ 
+            .navbar
+            {
+                margin-bottom: 0;
+                border-radius: 0;
+            }
+            
+            /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+            .row.content {height: 450px}
+            
+            /* Set gray background color and 100% height */
+            .sidenav
+            {
+                padding-top: 20px;
+                background-color: #f1f1f1;
+                height: 100%;
+            }
+            
+            /* Set black background color, white text and some padding */
+            footer
+            {
+                background-color: #555;
+                color: white;
+                padding: 15px;
+            }
+            #table
+            {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            #table td, #table th
+            {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #table tr:nth-child(even){background-color: #f2f2f2;}
+
+            #table tr:hover {background-color: #ddd;}
+
+            #table th
+            {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+            
+            /* On small screens, set height to 'auto' for sidenav and grid */
+            @media screen and (max-width: 767px)
+            {
+                .sidenav
+                {
+                    height: auto;
+                    padding: 15px;
+                }
+                .row.content {height:auto;}
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+            </div>
+        </div>
+        </nav> -->
+        
+        <div class="container-fluid text-center">    
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+                <!-- <p><a href="#">Link</a></p>
+                <p><a href="#">Link</a></p>
+                <p><a href="#">Link</a></p> -->
+            </div>
+
+            <div style = "font-family: Candara, Bookman, monospace;" class="col-sm-8 text-left"> 
+                <h1><b>Mutation testing of Reinforcement learning models at runtime</b></h1>
+                <h1>Report generated after runtime testing</h1>
+                <hr>
+
+                <h2>Results when single parameter is changed everytime:</h2>
+                <p>
+                    <ul>
+                        {% for line in text1 %}
+                            <li>{{ line }}</li>
+                        {% endfor %}
+                    </ul>
+                </p>
+                <hr>
+
+                <h2>Results when multiple parameters are changed everytime:</h2>
+                <p>
+                    <ul>
+                        {% for line in text2 %}
+                            <li>{{ line }}</li>
+                        {% endfor %}
+                    </ul>
+                </p>
+                <hr>
+
+                <h2>Stats of different generations for each parameter:</h2>
+                {% for i in range(num_of_param) %}
+                    <h3>{{ 'For ' + text1[i].split(' ')[0] +  ' ' + text1[i].split(' ')[1] }}</h3>
+                    <table id = "table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Generation</th>
+                            <th>Size</th>
+                            <th>Fitness</th>
+                            <th>Adj_fit</th>
+                            <th>Stag</th>
+                        </tr>
+                        {% for j in range(num_of_gen) %}
+                            <tr>
+                                <td>{{ text3[i * num_of_gen + j][0] }}</td>
+                                <td>{{ text3[i * num_of_gen + j][1] }}</td>
+                                <td>{{ text3[i * num_of_gen + j][2] }}</td>
+                                <td>{{ text3[i * num_of_gen + j][3] }}</td>
+                                <td>{{ text3[i * num_of_gen + j][4] }}</td>
+                                <td>{{ text3[i * num_of_gen + j][5] }}</td>
+                                
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endfor %}
+                <hr>
+
+                <h2>Stats of different generations for combinations of parameters:</h2>
+                {% for i in range(num_of_combo) %}
+                    <h3>{{ 'For ' + text2[i].split(' ')[0] +  ' ' + text2[i].split(' ')[1] }}</h3>
+                    <table id = "table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Generation</th>
+                            <th>Size</th>
+                            <th>Fitness</th>
+                            <th>Adj_fit</th>
+                            <th>Stag</th>
+                        </tr>
+                        {% for j in range(num_of_gen) %}
+                            <tr>
+                                <td>{{ text4[i * num_of_gen + j][0] }}</td>
+                                <td>{{ text4[i * num_of_gen + j][1] }}</td>
+                                <td>{{ text4[i * num_of_gen + j][2] }}</td>
+                                <td>{{ text4[i * num_of_gen + j][3] }}</td>
+                                <td>{{ text4[i * num_of_gen + j][4] }}</td>
+                                <td>{{ text4[i * num_of_gen + j][5] }}</td>
+                                
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endfor %}
+                <hr>
+            </div>
+
+            <div class="col-sm-2 sidenav">
+                <!-- <div class="well">
+                    <p>ADS</p>
+                </div>
+                <div class="well">
+                    <p>ADS</p>
+                </div> -->
+            </div>
+        </div>
+        </div>
+
+        <footer class="container-fluid text-center">
+            <h3>Created by:</h3>
+            <h4>Dheeraj</h4>
+            <h4>Karthik</h4>
+            <h4>Abhinand</h4>
+        </footer>
+
+    </body>
+</html>

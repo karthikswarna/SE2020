@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>ASASM</title>
+</head>
+
+<style>
+    body {
+        padding: 20px;
+    }
+</style>
+
+<body>
+
+
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Mutation Testing of Reinforcement Learning models at runtime.</span>
+    </nav>
+
+    <div class="jumbotron">
+        <h1 class="display-4">ASASM</h1>
+
+        <p class="lead">Some parameters which define the environment of a system may have not been taken into account while a model is being trained in that system using reinforced learning. This software aims to highlight the performance of a reinforced model under
+            such changing factors.</p>
+
+
+        <p>Upload an environment with a model loaded. Then press generate to get a detailed report.</p>
+        <hr class="my-4">
+        <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
+        <form action="/success" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <button type="submit" class="btn btn-primary" value="Upload" data-toggle="modal" data-target="#exampleModal">Generate</button>
+        </form>
+        <hr class="my-4">
+    </div>
+
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+          </button> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              About Us
+            </a>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+              More Info
+            </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+
+            <div class="row row-list">
+                <div class="col-xs-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">V DHEERAJ</h5>
+                            <hr class="my-4">
+                            <h6 class="card-subtitle mb-2 text-muted">IIT Tirupati</h6>
+                            <hr class="my-4">
+                            <h6 class="card-subtitle mb-2 text-muted">cs17b028@iittp.ac.in</h6>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 container-img">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Karthik C</h5>
+                            <hr class="my-4">
+                            <h6 class="card-subtitle mb-2 text-muted">IIT Tirupati</h6>
+                            <hr class="my-4">
+                            <h6 class="card-subtitle mb-2 text-muted">cs17b026@iittp.ac.in</h6>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 container-paragraph">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">G Abhinand</h5>
+                            <hr class="my-4">
+                            <h6 class="card-subtitle mb-2 text-muted">IIT Tirupati</h6>
+                            <hr class="my-4">
+                            <h6 class="card-subtitle mb-2 text-muted">cs17b012@iittp.ac.in</h6>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="collapse" id="collapseExample1">
+        <div class="card card-body">
+            <p>Done by Team 6 as a part of the Software Engineering Lab 2020. </p>
+            <hr class="my-4">
+
+            <h3>Features</h3>
+            <hr class="my-4">
+            <p>> Automatic extraction of all possible variables which makes up the environment.</p>
+            <p>> Run mulitple instances parallely.</p>
+            <p>> Change parameters at runtime.</p>
+        </div>
+    </div>
+
+    <!-- <div class="card">
+        <div class="card-body">
+            This is some text within a card body.
+        </div>
+    </div> -->
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h3 class="display-4">Disclaimer</h3>
+            <p class="lead">This is a prototype and still in development phase.</p>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>
