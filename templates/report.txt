@@ -8,6 +8,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <style>
+            h1 {text-align: center;}
+            
             /* Remove the navbar's default margin-bottom and rounded borders */ 
             .navbar
             {
@@ -32,6 +34,31 @@
                 background-color: #555;
                 color: white;
                 padding: 15px;
+            }
+            #table
+            {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            #table td, #table th
+            {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #table tr:nth-child(even){background-color: #f2f2f2;}
+
+            #table tr:hover {background-color: #ddd;}
+
+            #table th
+            {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
             }
             
             /* On small screens, set height to 'auto' for sidenav and grid */
@@ -81,7 +108,8 @@
             </div>
 
             <div style = "font-family: Candara, Bookman, monospace;" class="col-sm-8 text-left"> 
-                <h1>Mutation testing of Reinforcement learning models at runtime</h1>
+                <h1><b>Mutation testing of Reinforcement learning models at runtime</b></h1>
+                <h1>Report generated after runtime testing</h1>
                 <hr>
 
                 <h2>Results when single parameter is changed everytime:</h2>
@@ -102,6 +130,59 @@
                         {% endfor %}
                     </ul>
                 </p>
+                <hr>
+
+                <h2>Stats of different generations for each parameter:</h2>
+                {% for i in range(num_of_param) %}
+                    <h3>{{ 'For ' + text1[i].split(' ')[0] +  ' ' + text1[i].split(' ')[1] }}</h3>
+                    <table id = "table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Generation</th>
+                            <th>Size</th>
+                            <th>Fitness</th>
+                            <th>Adj_fit</th>
+                            <th>Stag</th>
+                        </tr>
+                        {% for j in range(num_of_gen) %}
+                            <tr>
+                                <td>{{ text3[i * num_of_gen + j][0] }}</td>
+                                <td>{{ text3[i * num_of_gen + j][1] }}</td>
+                                <td>{{ text3[i * num_of_gen + j][2] }}</td>
+                                <td>{{ text3[i * num_of_gen + j][3] }}</td>
+                                <td>{{ text3[i * num_of_gen + j][4] }}</td>
+                                <td>{{ text3[i * num_of_gen + j][5] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endfor %}
+                <hr>
+
+                <h2>Stats of different generations for combinations of parameters:</h2>
+                {% for i in range(num_of_combo) %}
+                    <h3>{{ 'For ' + text2[i].split(' ')[0] +  ' ' + text2[i].split(' ')[1] }}</h3>
+                    <table id = "table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Generation</th>
+                            <th>Size</th>
+                            <th>Fitness</th>
+                            <th>Adj_fit</th>
+                            <th>Stag</th>
+                        </tr>
+                        {% for j in range(num_of_gen) %}
+                            <tr>
+                                <td>{{ text4[i * num_of_gen + j][0] }}</td>
+                                <td>{{ text4[i * num_of_gen + j][1] }}</td>
+                                <td>{{ text4[i * num_of_gen + j][2] }}</td>
+                                <td>{{ text4[i * num_of_gen + j][3] }}</td>
+                                <td>{{ text4[i * num_of_gen + j][4] }}</td>
+                                <td>{{ text4[i * num_of_gen + j][5] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endfor %}
+                <hr>
             </div>
 
             <div class="col-sm-2 sidenav">
@@ -117,9 +198,9 @@
 
         <footer class="container-fluid text-center">
             <h3>Created by:</h3>
-            <p>Dheeraj</p>
-            <p>Karthik</p>
-            <p>Abhinand</p>
+            <h4>Dheeraj</h4>
+            <h4>Karthik</h4>
+            <h4>Abhinand</h4>
         </footer>
 
     </body>
