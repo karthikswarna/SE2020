@@ -14,4 +14,6 @@ The environment.py file is a flappy bird AI program written using NEAT module.
 
 ## To run the file.
 
+The app uses node.js to run, so the respective dependencies must be installed and then the app can be run.
+
 Just run the wrapper.py file. Make sure all the requirements are pre-installed.
