@@ -1,5 +1,5 @@
-# **Mutation Testing of Reinforcement learning models at runtime**
-# **USER GUIDELINES FOR USING THE SOFTWARE**
+## <div align="center">**MUTATION TESTING OF REINFORCEMENT LEARNING MODELS AT RUNTIME**</div>
+## <div align="center">**USER GUIDELINES FOR USING THE SOFTWARE**</div>
 
 ## **What to expect from this software?**
 
@@ -55,6 +55,7 @@ Some of the factors which can be fatal are:
 *   Make sure all the requirements are pre-installed and also install python 3.6+.
 *   Run the wrapper.py file using the command:
 
+
 ```
-                                python wrapper.py
+                                            python wrapper.py
 ```
