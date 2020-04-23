@@ -19,13 +19,29 @@ def success():
     
 
     if request.method == 'POST':  
-        f = request.files['file']
-        f.save(f.filename)  
+        # f = request.files['file']
+        # f.save(f.filename)  
         
+        print("------------------------------------------------------")
+
+        new_variables = request.form.getlist('inputer')
+
+        new_variables = [int(i) for i in new_variables]
+
+        print(new_variables)
+        
+        print("------------------------------------------------------")
 
         os.chdir(wrapper_dir)
 
-        cmd = 'python wrapper.py'
+        # cmd2 = 'python Refactor.py'
+
+        # os.system(cmd2)
+
+        cmd = 'python wrapper.py '+str(len(new_variables))
+
+        for k in new_variables:
+            cmd = cmd + ' ' + str(k)
 
         os.system(cmd)
         
@@ -33,9 +49,9 @@ def success():
 
         os.system(cmd1)
 
-        # cmd2 = 'copy report.html gui/templates'
+        cmd2 = 'copy report.html gui/templates'
 
-        # os.system(cmd2)
+        os.system(cmd2)
         
 ## Karthik
         # file = open("output_param", 'r')
@@ -64,7 +80,34 @@ def success():
 
         os.chdir(Cur_dir)
         # return "<a>Not a valid python file</a>"
-        return render_template("report.html", name = f.filename)  
+        return render_template("report.html", name = 'f.filename')  
+        
+        # return "<a>Not a valid python file</a>"
+
+@app.route('/refactor', methods = ['POST'])  
+def refactor():
+
+    Cur_dir = os.getcwd()
+    print(Cur_dir)
+    wrapper_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+    print(wrapper_dir)
+    os.chdir(Cur_dir)
+    
+
+    if request.method == 'POST':  
+        f = request.files['file']
+        f.save(f.filename)  
+        
+        os.chdir(wrapper_dir)
+
+        cmd2 = 'python Refactor.py'
+
+        kline = open('variable').readlines()
+
+
+        os.chdir(Cur_dir)
+        # return "<a>Not a valid python file</a>"
+        return render_template("refactor.html", name = f.filename, variables = kline, num = len(kline))  
         
         # return "<a>Not a valid python file</a>"
   

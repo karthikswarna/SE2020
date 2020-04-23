@@ -10,22 +10,39 @@ import time
 
 vari = open('variable').readlines()
 
+numm = int(sys.argv[1])
+
+ulti_list = []
+
+for i in range(2,2+numm):
+    ulti_list.append(int(sys.argv[i]))
+
+
+
+
+print('-------------------------------------------------------')
+print(ulti_list)
+print('-------------------------------------------------------')
+
+# ulti_list = [1,3,4,5]
+
 for num,j in enumerate(vari):
-    cmd1 = 'mkdir test_'+str(num)
-    try:
-        os.system(cmd1)
-    except:
-        pass
-    cmd2 = 'copy variable test_'+str(num)
-    cmd3 = 'copy target_new.py test_'+str(num)
-    cmd4 = 'copy config.txt test_'+str(num)
-    cmd5 = 'copy simulate_changes.py test_'+str(num)
-    
-    os.system(cmd2)
-    os.system(cmd3)
-    os.system(cmd4)
-    os.system(cmd5)
-    
+    if num in ulti_list:
+        cmd1 = 'mkdir test_'+str(num)
+        try:
+            os.system(cmd1)
+        except:
+            pass
+        cmd2 = 'copy variable test_'+str(num)
+        cmd3 = 'copy target_new.py test_'+str(num)
+        cmd4 = 'copy config.txt test_'+str(num)
+        cmd5 = 'copy simulate_changes.py test_'+str(num)
+        
+        os.system(cmd2)
+        os.system(cmd3)
+        os.system(cmd4)
+        os.system(cmd5)
+        
 
     
     # os.system(cmd_run)
@@ -54,16 +71,17 @@ varss = []
 file_ = open("output", "w")
 
 for num,file in enumerate(vari):
-    varss.append(num)
-    os.chdir('./test_'+str(num))
-    with open(os.devnull, 'w') as fp:
-        proc = subprocess.Popen([sys.executable, 'simulate_changes.py', str([num])], stdout=file_)
-    # proc = subprocess.Popen([sys.executable, 'simulate_changes.py', str(num)])
-    os.chdir('../')
-    batch.append(num)
-    ps[proc] = time.time()
-    ts.append(threading.Thread(target=time_p, args=(proc,)))
-    
+    if num in ulti_list:
+        varss.append(num)
+        os.chdir('./test_'+str(num))
+        with open(os.devnull, 'w') as fp:
+            proc = subprocess.Popen([sys.executable, 'simulate_changes.py', str([num])], stdout=file_)
+        # proc = subprocess.Popen([sys.executable, 'simulate_changes.py', str(num)])
+        os.chdir('../')
+        batch.append(num)
+        ps[proc] = time.time()
+        ts.append(threading.Thread(target=time_p, args=(proc,)))
+        
     # procs.append(proc)
     
     # procs.append(proc)
@@ -148,7 +166,7 @@ file_.close()
 
 
 
-
+ttt = int(sys.argv[1])
 
 # Printing the fitness scores in output_param file.
 file_2.write('  ====  ===  ====  =======  =======  ====\n')
@@ -160,7 +178,7 @@ while(True):
     for k in lines:
         if k.find("generation 4")!=-1:
             a = a + 1
-    if a >= 8:
+    if a >= numm:
         break
     else:
         file_3.close()

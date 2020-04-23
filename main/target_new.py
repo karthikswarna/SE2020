@@ -230,6 +230,8 @@ def draw_window(win, birds, pipes, base, score, gen):
 def main(genomes, config):
     global GEN
     GEN += 1
+    # if(GEN > 1):
+
     nets = []
     ge = []
     birds = []
@@ -249,6 +251,8 @@ def main(genomes, config):
     
     run = True
     while run:
+        if GEN > 1:
+            break
         clock.tick(120)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -331,9 +335,9 @@ def run(config_file):
     stats = neat.StatisticsReporter()
     p.add_reporter(stats)
 
-    winner = p.run(main,5)
+    winner = p.run(main, 5)
 
-    # print('\nBest genome:\n{!s}'.format(winner))
+    print('\nBest genome:\n{!s}'.format(winner))
 
 if __name__ == "__main__":
     local_dir = os.path.dirname(__file__)
