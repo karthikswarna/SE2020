@@ -53,9 +53,9 @@ Some of the factors which can be fatal are:
 ## **How to run the software?**
 
 *   Make sure all the requirements are pre-installed and also install python 3.6+.
-*   Run the wrapper.py file using the command:
+*   Run the main/gui/app.py to start the flask development server file using the command:
 
 
 ```
-                                            python wrapper.py
+                                            python app.py
 ```
